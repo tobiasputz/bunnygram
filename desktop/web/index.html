@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#eab5d0">
+  <meta name="description" content="A tiny floating friend, controlled with love.">
+  <link rel="icon" href="/favicon.png">
+  <link rel="stylesheet" href="/app.css">
+  <title>Bunnygram · Little Companion</title>
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div class="brand-icon">♥</div>
+      <div><div class="eyebrow">A little friend for you</div><h1>Bunnygram<span class="spark">✦</span></h1></div>
+      <div class="connection" id="connection"><span class="dot"></span><span id="connectionText">Connecting</span></div>
+    </header>
+
+    <section id="pairScreen" class="panel pairing" hidden>
+      <div class="pair-emoji">💌</div>
+      <h2>Meet your little companion</h2>
+      <p>Enter the six-digit pairing code shown in the Bunnygram terminal on the computer running the display.</p>
+      <form id="pairForm" autocomplete="off">
+        <input id="pairCode" aria-label="6 digit pairing code" inputmode="numeric" type="text" pattern="[0-9]{6}" maxlength="6" placeholder="000000" required>
+        <button class="button primary" type="submit">Pair my phone ♥</button>
+      </form>
+      <p class="helper">Your phone and display computer must be on the same home Wi-Fi or private network. Do not expose this test server to the public internet.</p>
+    </section>
+
+    <div id="dashboard" hidden>
+      <section class="panel stage">
+        <div class="card-head"><div><div class="eyebrow">Live window preview</div><h2 id="friendTitle">Your floating friend</h2><p id="personality">Just being their adorable self.</p></div>
+          <span class="chip">✦ no chores</span></div>
+        <div class="stage-row">
+          <div class="display-wrap"><img id="displayPreview" alt="Live pixel-art display preview" src="/assets/bunny/idle_0.png"><div class="glass-shine"></div></div>
+          <div class="stage-actions"><button type="button" class="button soft" data-reaction="wave">👋 Say hello</button><button type="button" class="button soft" data-reaction="heart">💗 Send love</button><button type="button" class="button soft" data-reaction="dance">🎵 Little dance</button><button type="button" class="button soft" data-reaction="sleep">🌙 Take a nap</button></div>
+        </div>
+        <div class="subtle-line"><span id="activity">Enjoying the day</span><span id="unreadTop">No new mail</span></div>
+      </section>
+
+      <section class="panel">
+        <div class="card-head"><div><div class="eyebrow">Pick a little friend</div><h2>Who lives in the glass?</h2><p>Including a cookie who refuses to be eaten and a very happy little bee.</p></div></div>
+        <div id="petPicker" class="pet-grid" role="group" aria-label="Choose pet"></div>
+        <div class="rename-row"><label for="renameInput">Companion's name</label><div><input id="renameInput" maxlength="24" placeholder="Mochi"><button type="button" class="button small" id="renameButton">Rename</button></div></div>
+      </section>
+
+      <section class="panel">
+        <div class="card-head"><div><div class="eyebrow">Make them smile</div><h2>Little surprises</h2><p>Reactions appear in the floating display, no buttons needed.</p></div></div>
+        <div class="reaction-grid"><button type="button" class="reaction" data-reaction="flower"><span>🌷</span>Flower</button><button type="button" class="reaction" data-reaction="star"><span>⭐</span>Wish</button><button type="button" class="reaction" data-reaction="hop"><span>🐇</span>Jump</button><button type="button" class="reaction" data-reaction="present"><span>🎁</span>Surprise</button></div>
+      </section>
+
+      <section class="panel">
+        <div class="card-head"><div><div class="eyebrow">A note from you</div><h2>Send a little letter 💌</h2><p>They'll see a floating envelope. The full letter stays readable here on the phone.</p></div></div>
+        <form id="letterForm" class="letter-form">
+          <label for="sender">From</label><input id="sender" maxlength="40" value="Your person" required>
+          <label for="letter">Message</label><textarea id="letter" maxlength="600" rows="4" placeholder="I saw something today that reminded me of you..." required></textarea>
+          <label for="giftType">Optional surprise</label><select id="giftType"><option value="letter">Just a letter</option><option value="heart">💗 A heart</option><option value="flower">🌷 A flower</option><option value="star">⭐ A star</option><option value="present">🎁 A wrapped gift</option></select>
+          <button type="submit" class="button primary wide">Deliver with love ✨</button>
+        </form>
+      </section>
+
+      <section class="panel">
+        <div class="card-head"><div><div class="eyebrow">Saved forever (on this computer)</div><h2>Mailbox <span class="mail-count" id="mailCount">0</span></h2></div></div>
+        <div id="mailList" class="mail-list"><p class="muted">No letters yet. Send the first one!</p></div>
+      </section>
+
+      <details class="panel settings-panel"><summary><span><span class="eyebrow">Make it shine</span><strong>Display settings</strong></span><span>⚙️</span></summary>
+        <p class="helper">For the physical beam splitter, you can mirror or rotate the picture until it reflects correctly.</p>
+        <label class="range-row" for="brightness"><span>Brightness</span><span id="brightnessValue">100%</span></label>
+        <input type="range" id="brightness" min="10" max="100" step="5" value="100">
+        <label class="switch-line"><span>Display on</span><input type="checkbox" data-setting="display_on" checked></label>
+        <label class="switch-line"><span>Mirror horizontally</span><input type="checkbox" data-setting="mirror_horizontal"></label>
+        <label class="switch-line"><span>Rotate 180°</span><input type="checkbox" data-setting="rotate_180"></label>
+        <label class="switch-line"><span>Sleep more between 23:00 and 07:00</span><input type="checkbox" data-setting="quiet_hours"></label>
+        <label class="switch-line"><span>Fullscreen display</span><input type="checkbox" data-setting="fullscreen"></label>
+        <label class="switch-line"><span>Draw test border</span><input type="checkbox" data-setting="show_preview_border"></label>
+        <div class="settings-actions"><button class="button soft" id="reloadButton" type="button">↻ Reload edited sprites</button><button class="button soft" id="screenshotButton" type="button">📸 Save screenshot</button></div>
+      </details>
+      <footer>Always happy to see you · No feeding required ♡ <button class="text-button" type="button" id="unpair">Forget this phone</button></footer>
+    </div>
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="/app.js" defer></script>
+</body>
+</html>

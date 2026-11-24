@@ -1,0 +1,6 @@
+{
+  "ssid": "YOUR_2_4_GHZ_WIFI_SSID",
+  "wifi_password": "DO_NOT_COMMIT_WIFI_PASSWORD",
+  "railway_url": "https://YOUR-SERVICE.up.railway.app",
+  "device_token": "PASTE_RAILWAY_DEVICE_TOKEN_HERE"
+}

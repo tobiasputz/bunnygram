@@ -1,0 +1,16 @@
+{
+  "name": "Mochi",
+  "hunger": 91.20610293712883,
+  "happiness": 99.98523869898577,
+  "energy": 64.0409234213301,
+  "sleeping": true,
+  "last_tick": 1795033736.584989,
+  "hearts": 0,
+  "flowers": 0,
+  "cakes": 1,
+  "letters_read": 0,
+  "inbox": [],
+  "seen_ids": [
+    "demo-1795021065543835300-1"
+  ]
+}

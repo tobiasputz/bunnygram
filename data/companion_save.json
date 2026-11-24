@@ -1,0 +1,24 @@
+{
+  "version": 3,
+  "pet": "cookie",
+  "names": {
+    "bunny": "Mochi",
+    "cat": "Miso",
+    "fox": "Pip",
+    "frog": "Puddle",
+    "cookie": "Chip",
+    "bee": "Bumble"
+  },
+  "settings": {
+    "brightness": 100,
+    "mirror_horizontal": false,
+    "rotate_180": false,
+    "quiet_hours": false,
+    "display_on": true,
+    "fullscreen": false,
+    "show_preview_border": false
+  },
+  "mail": [],
+  "total_interactions": 9,
+  "created_at": 1795038217.073448
+}
